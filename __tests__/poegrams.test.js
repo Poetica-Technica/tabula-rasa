@@ -27,8 +27,6 @@ describe('Poegram routes', () => {
       });    
   });
 
-  
-
   it('gets all poegrams', async() => {
     const poegrams = await getPoegrams();
 
@@ -41,10 +39,9 @@ describe('Poegram routes', () => {
             userId: expect.any(Object),
             poemId: expect.any(Object)
           });
-        });
+        });     
       });
   });
-
   it('gets a specific poegram', async() => {
     const poegram = await getPoegram();
     const user = await getUser({ _id: poegram.userId });
@@ -61,7 +58,6 @@ describe('Poegram routes', () => {
       });
   });
 
-
   it('deletes a poegram', async() => {
     const user = await getUser({ username: 'beauty' });
     const poegram = await getPoegram({ userId: user._id });
@@ -73,3 +69,6 @@ describe('Poegram routes', () => {
       });
   });
 });
+
+
+
