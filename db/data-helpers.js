@@ -24,9 +24,8 @@ beforeEach(() => {
   return agent
     .post('/api/v1/auth/login')
     .send({
-      username: 'durkheim',
-      password: 'password',
-      profilePhotoURL: 'stardew.jpeg'
+      username: 'beauty',
+      password: 'beautiful',
     });
 });
 
