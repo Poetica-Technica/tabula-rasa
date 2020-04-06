@@ -5,21 +5,21 @@ const app = require('../lib/app');
 
 describe('Poegram routes', () => {
   it('creates a poegram', async() => {
-    const user = await getUser({ username: 'testUser' });
-    const poem = await getPoem({ title: 'testTitle' });
+    const user = await getUser({ username: 'beauty' });
+    const poem = await getPoem();
     
     return getAgent()
       .post('/poegrams')
       .send({
-        user: user._id,
-        poem: poem._id,
+        userId: user._id,
+        poemId: poem._id,
         colors: ['#000000', '#FFFFFF']
       })
       .then(res => {
         expect(res.body).toEqual({
           _id: expect.any(String),
-          user: user._id.toString(),
-          poem: poem._id.toString(),
+          userId: user._id.toString(),
+          poemId: poem._id.toString(),
           colors: ['#000000', '#FFFFFF'],
           __v: 0
         });
