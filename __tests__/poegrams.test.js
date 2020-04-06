@@ -1,6 +1,5 @@
 const { getUser, getPoegram, getPoegrams, getPoem, getAgent } = require('../db/data-helpers');
 
-const mongoose = require('mongoose');
 const request = require('supertest');
 const app = require('../lib/app');
 
