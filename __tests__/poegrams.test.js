@@ -5,10 +5,11 @@ const request = require('supertest');
 const app = require('../lib/app');
 
 describe('Poegram routes', () => {
-  it('creates a poegram', async() => {
-    const user = await getUser({ username: 'beauty' });
-    const poem = await getPoem();
+  // it('creates a poegram', async() => {
+  //   const user = await getUser({ username: 'beauty' });
+  //   const poem = await getPoem();
     
+
     return getAgent()
       .post('/api/v1/poegrams')
       .send({
@@ -26,6 +27,7 @@ describe('Poegram routes', () => {
         });
       });    
   });
+
   
 
   it('gets all poegrams', async() => {
@@ -34,6 +36,7 @@ describe('Poegram routes', () => {
     return request(app)
       .get('/api/v1/poegrams')
       .then(res => {
+
         poegrams.forEach(poegram => {
           expect(res.body).toContainEqual({
             ...poegram,
@@ -41,8 +44,8 @@ describe('Poegram routes', () => {
             poemId: expect.any(Object)
           });
         });     
-      });
   });
+
 
 
   it('gets a specific poegram', async() => {
@@ -72,5 +75,4 @@ describe('Poegram routes', () => {
         expect(res.body).toEqual(poegram);
       });
   });
-
 });
