@@ -9,7 +9,6 @@ describe('Poegram routes', () => {
     const user = await getUser({ username: 'beauty' });
     const poem = await getPoem();
     
-
     return getAgent()
       .post('/api/v1/poegrams')
       .send({
@@ -34,7 +33,6 @@ describe('Poegram routes', () => {
     return request(app)
       .get('/api/v1/poegrams')
       .then(res => {
-
         poegrams.forEach(poegram => {
           expect(res.body).toContainEqual({
             ...poegram,
