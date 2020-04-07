@@ -8,7 +8,7 @@ module.exports = async({ usersToCreate = 3, poemsToCreate = 10, poegramsToCreate
     username: 'beauty',
     password: 'beautiful',
   });
-
+  
   const categories = ['Romantic', 'Lake', 'American'];
   const loggedInPoem = await Poem.create({
     author: chance.name(),
@@ -23,8 +23,6 @@ module.exports = async({ usersToCreate = 3, poemsToCreate = 10, poegramsToCreate
     poemId: loggedInPoem,
     colors: [chance.color(), chance.color()]
   });
-
-
 
   const users = await User.create([...Array(usersToCreate)].slice(1).map(() => ({
     username: chance.name(),
