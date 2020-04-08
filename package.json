@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/jest": "^25.1.5",
     "eslint": "^6.8.0",
-    "jest": "^25.2.7",
+    "jest": "^25.3.0",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2"
   },
@@ -31,10 +31,12 @@
     "canvas": "^2.6.1",
     "chance": "^1.1.4",
     "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fabric": "^3.6.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.7"
+    "mongoose": "^5.9.7",
+    "twitter": "^1.7.1"
   }
 }
