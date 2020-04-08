@@ -36,6 +36,7 @@
     "express": "^4.17.1",
     "fabric": "^3.6.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.7"
+    "mongoose": "^5.9.7",
+    "twitter": "^1.7.1"
   }
 }
