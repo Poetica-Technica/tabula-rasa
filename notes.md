@@ -28,3 +28,8 @@ EOD Tuesday: Display all user's formatted Poegrams on front-end site?
 
 TA Q's:
   - Recommended storage service for Heroku? (S3?)
+
+  // take newly formed poem and merge it with the user that requested it and make a poegram
+  // the backend 
+  // default user?? becuase we might not be doing auth
+  
