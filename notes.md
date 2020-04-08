@@ -6,6 +6,7 @@ Needs:
   - Gallery of Poegrams (like Archillect)
     - Render Poegram JSON
   - About devs (project requirements?)
+  - hi :)
 
 - Back-end route ('Create'? 'New'? 'Make'?) for making a Poegram request
   - /api/v1/create/?author=Shakespeare&format=Twitter
