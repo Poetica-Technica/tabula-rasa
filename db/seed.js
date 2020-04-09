@@ -2,6 +2,7 @@ const chance = require('chance').Chance();
 const User = require('../lib/models/User');
 const Poegram = require('../lib/models/Poegram');
 const Poem = require('../lib/models/Poem');
+const { getRandomPoemByAuthor, randomAuthor, randomItem } = require('../lib/routes/route-functions');
 
 module.exports = async({ usersToCreate = 3, poemsToCreate = 10, poegramsToCreate = 20 } = {}) => {
   const loggedInUser = await User.create({
@@ -38,10 +39,22 @@ module.exports = async({ usersToCreate = 3, poemsToCreate = 10, poegramsToCreate
     category: chance.pickone(categories),
   })));
 
-  await Poegram.create([...Array(poegramsToCreate)].slice(1).map(() => ({
-    userId: chance.pickone(users),
-    poemId: chance.pickone(poems),
-    colors: [chance.color(), chance.color()]
-  })));
+  await getRandomPoemByAuthor(randomAuthor())
+    .then(poemObject => 
+      Poem
+        .create({ 
+          author: poemObject.author, 
+          title: poemObject.title,
+          lines: randomItem(poemObject.lines),
+          category: 'Romantic'
+        }))
+    .then(poem =>
+      Poegram
+        .create({ 
+          userId: chance.pickone(users),
+          poemId: poem._id,
+          colors: [chance.color({ format: 'hex' }), chance.color({ format: 'hex' })]
+        }));
 };
 
+// check in heroku
