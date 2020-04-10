@@ -44,4 +44,3 @@ module.exports = async({ usersToCreate = 3, poemsToCreate = 10, poegramsToCreate
     colors: [chance.color(), chance.color()]
   })));
 };
-
