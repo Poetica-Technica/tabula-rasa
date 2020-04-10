@@ -19,8 +19,8 @@ beforeEach(() => {
   return agent
     .post('/api/v1/users/login')
     .send({
-      username: 'beauty',
-      password: 'beautiful',
+      username: 'test',
+      password: 'test',
     });
 });
 afterAll(() => {
