@@ -1,4 +1,4 @@
 language: node_js
 node_js: node
 services: mongodb
-env: MONGODB_URI=mongodb://localhost:27017/travis APP_SECRET=anything
+env: MONGODB_URI=mongodb://localhost:27017/travis APP_SECRET=anything TWITTER_CONSUMER_KEY=hello TWITTER_CONSUMER_SECRET=hello TWITTER_ACCESS_TOKEN=hello TWITTER_ACCESS_TOKEN_SECRET=hello
