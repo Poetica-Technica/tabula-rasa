@@ -1,6 +1,6 @@
 require('dotenv').config();
 const connect = require('../lib/utils/connect');
-const seed = require('../db/seed');
+const seed = require('./seed-new');
 const mongoose = require('mongoose');
 const fs = require('fs');
 const request = require('supertest');
@@ -19,8 +19,8 @@ beforeEach(() => {
   return agent
     .post('/api/v1/users/login')
     .send({
-      username: 'beauty',
-      password: 'beautiful',
+      username: 'test',
+      password: 'test',
     });
 });
 afterAll(() => {
