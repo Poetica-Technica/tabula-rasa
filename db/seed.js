@@ -1,34 +1,46 @@
-require('dotenv').config();
-require('../lib/utils/connect')();
 const chance = require('chance').Chance();
 const User = require('../lib/models/User');
 const Poegram = require('../lib/models/Poegram');
 const Poem = require('../lib/models/Poem');
-const { getRandomPoemByAuthor, randomAuthor, randomItem } = require('../lib/routes/route-functions');
 
-async function seedFunction() {
+module.exports = async({ usersToCreate = 3, poemsToCreate = 10, poegramsToCreate = 20 } = {}) => {
   const loggedInUser = await User.create({
-    username: 'test',
-    password: 'test',
+    username: 'beauty',
+    password: 'beautiful',
   });
-  console.log('hi');
-  return getRandomPoemByAuthor(randomAuthor())
-    .then(poemObject => 
-      Poem
-        .create({ 
-          author: poemObject.author, 
-          title: poemObject.title,
-          lines: randomItem(poemObject.lines),
-          category: 'Romantic'
-        })
-    )
-    .then(poem =>
-      Poegram
-        .create({ 
-          userId: loggedInUser,
-          poemId: poem._id,
-          colors: [chance.color({ format: 'hex' }), chance.color({ format: 'hex' })]
-        }));
-}
+  
+  const categories = ['Romantic', 'Lake', 'American'];
+  const loggedInPoem = await Poem.create({
+    author: chance.name(),
+    title: chance.name(),
+    text: chance.sentence(),
+    lines: chance.sentence(),
+    category: chance.pickone(categories),
+  });
 
-seedFunction().then(() => console.log('hi'));
+  await Poegram.create({
+    userId: loggedInUser,
+    poemId: loggedInPoem,
+    colors: [chance.color(), chance.color()]
+  });
+
+  const users = await User.create([...Array(usersToCreate)].slice(1).map(() => ({
+    username: chance.name(),
+    password: chance.animal(),
+  })));
+
+  // hits external api 
+  const poems = await Poem.create([...Array(poemsToCreate)].slice(1).map(() => ({
+    author: chance.name(),
+    title: chance.name(),
+    text: chance.sentence(),
+    lines: chance.sentence(),
+    category: chance.pickone(categories),
+  })));
+
+  await Poegram.create([...Array(poegramsToCreate)].slice(1).map(() => ({
+    userId: chance.pickone(users),
+    poemId: chance.pickone(poems),
+    colors: [chance.color(), chance.color()]
+  })));
+};
