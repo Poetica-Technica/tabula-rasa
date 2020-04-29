@@ -17,7 +17,7 @@ beforeEach(() => {
 const agent = request.agent(app);
 beforeEach(() => {
   return agent
-    .post('/api/v1/users/login')
+    .post('/auth/login')
     .send({
       username: 'test',
       password: 'test',
