@@ -1,6 +1,6 @@
 # Tabula-Rasa
 
-Tabula-Rasa is the back end of the poegram function written by Nathan Martel, Dorje Kirsten and Erin. It uses the Poetry DB database to construct single line random poems from a chosen author or a completely random line. This line of poetry is then dropped onto an image that is randomly generated to create a Poegram. The Poegram can be generated on the twitter handle: Poegrams
+Tabula-Rasa is the back end of the Poegram API written by Nathan Martel, Dorje Kirsten and Erin. It uses the Poetry DB database and API to construct single line random poems from a chosen or randomized author. This line of poetry is then dropped onto an image that is randomly generated to create a Poegram. The Poegram can be generated on the twitter handle: Poegrams
 @PoeticaTechnica if the visitor to the site so wishes. 
 
 ## What is a poegram?
