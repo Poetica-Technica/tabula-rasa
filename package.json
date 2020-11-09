@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cairo": "0.1.0-alpha.3",
     "canvas": "^2.6.1",
     "chance": "^1.1.4",
     "cookie-parser": "^1.4.5",
@@ -37,6 +38,7 @@
     "fs": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.7",
+    "pango": "0.0.3",
     "superagent": "^5.2.2",
     "twit": "^2.2.11",
     "twitter": "^1.7.1"
